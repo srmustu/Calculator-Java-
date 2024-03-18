@@ -1,11 +1,12 @@
 import java.util.Scanner;
+
 public class Calculator {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         int process;
-        double number1,number2,result;
-        String message1,message2,message3,message4,message5,message6,message7,message8;
+        double number1, number2, result;
+        String message1, message2, message3, message4, message5, message6, message7, message8,message9;
 
         message1 = "Welcome to calculator :)";
         message2 = "Please enter number 1 : ";
@@ -15,6 +16,7 @@ public class Calculator {
         message6 = "Please enter number 2 : ";
         message7 = "Result : ";
         message8 = "Invalid transaction, please select a valid transaction ";
+        message9 = "Diviser number cannot be equal to 0";
 
         System.out.print(message1 + "\n" + message2);
         number1 = input.nextDouble();
@@ -22,10 +24,10 @@ public class Calculator {
         System.out.print(message3 + "\n" + message4 + "\n" + message5);
         process = input.nextInt();
 
-        System.out.print(message6 );
+        System.out.print(message6);
         number2 = input.nextDouble();
 
-        switch (process){
+        switch (process) {
             case (1):
                 result = number1 + number2;
                 System.out.print(message7 + result);
@@ -39,9 +41,15 @@ public class Calculator {
                 System.out.print(message7 + result);
                 break;
             case (4):
-                result = number1 / number2;
-                System.out.print(message7 + result);
-                break;
+                if (number2 != 0) {
+                    result = number1 / number2;
+                    System.out.print(message7 + result);
+                    break;
+                } else {
+                    System.out.println(message9);
+                    break;
+                }
+
             default:
                 System.out.println(message8);
         }
